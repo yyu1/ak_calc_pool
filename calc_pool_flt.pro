@@ -34,14 +34,14 @@ Pro calc_pool_flt, in_file, nlcd_file, out_dead_file, out_root_file, out_wd_file
 		out_root_line[*] = 0
 		out_wd_line[*] = 0
 		
-		index = where((line gt 0) && ((nlcd_line eq 41) || (nlcd_line eq 42) || (nlcd_line eq 43)),count) 
+		index = where((line gt 0) and ((nlcd_line eq 41) or (nlcd_line eq 42) or (nlcd_line eq 43)),count) 
 		if (count gt 0) then begin
 			out_dead_line[index] = calc_dead(line[index])
 			out_root_line[index] = calc_root(line[index])
 			out_wd_line[index] = calc_wd(line[index])
 		endif
 		
-		index = where((line gt 0) && ((nlcd_line eq 51) || (nlcd_line eq 52)), count)
+		index = where((line gt 0) and ((nlcd_line eq 51) or (nlcd_line eq 52)), count)
 		if (count gt 0) then out_root_line[index] = calc_root_shrub(line[index])
 
 		writeu, dead_lun, out_dead_line
@@ -58,14 +58,14 @@ Pro calc_pool_flt, in_file, nlcd_file, out_dead_file, out_root_file, out_wd_file
 		readu, in_lun, line
 		readu, nlcd_lun, nlcd_line
 
-		index = where((line gt 0) && ((nlcd_line eq 41) || (nlcd_line eq 42) || (nlcd_line eq 43)),count) 
+		index = where((line gt 0) and ((nlcd_line eq 41) or (nlcd_line eq 42) or (nlcd_line eq 43)),count) 
 		if (count gt 0) then begin
 			out_dead_line[index] = calc_dead(line[index])
 			out_root_line[index] = calc_root(line[index])
 			out_wd_line[index] = calc_wd(line[index])
 		endif
 		
-		index = where((line gt 0) && ((nlcd_line eq 51) || (nlcd_line eq 52)), count)
+		index = where((line gt 0) and ((nlcd_line eq 51) or (nlcd_line eq 52)), count)
 		if (count gt 0) then out_root_line[index] = calc_root_shrub(line[index])
 		writeu, dead_lun, out_dead_line
 		writeu, root_lun, out_root_line
