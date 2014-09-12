@@ -18,7 +18,7 @@ Pro calc_pool_int, in_file, nlcd_file, out_dead_file, out_root_file, out_wd_file
 	out_root_line = intarr(1000000ULL)
 	out_wd_line = intarr(1000000ULL)
 
-	printf, 'Number of blocks to process:', n_blocks
+	print, 'Number of blocks to process:', n_blocks
 
 	openr, in_lun, in_file, /get_lun
 	openr, nlcd_lun, nlcd_file, /get_lun
