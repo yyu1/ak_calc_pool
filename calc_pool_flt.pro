@@ -45,7 +45,7 @@ Pro calc_pool_flt, in_file, nlcd_file, out_dead_file, out_root_file, out_wd_file
 			out_litter_line[index] = calc_litter_carbon(line[index])
 		endif
 		
-		index = where((line gt 0) and ((nlcd_line eq 51) or (nlcd_line eq 52)), count)
+		index = where((line gt 0) and (nlcd_line eq 51), count)
 		if (count gt 0) then out_root_line[index] = calc_root_shrub(line[index])
 
 		writeu, dead_lun, out_dead_line
@@ -64,7 +64,7 @@ Pro calc_pool_flt, in_file, nlcd_file, out_dead_file, out_root_file, out_wd_file
 		readu, in_lun, line
 		readu, nlcd_lun, nlcd_line
 
-		index = where((line gt 0) and ((nlcd_line eq 41) or (nlcd_line eq 42) or (nlcd_line eq 43) or (nlcd_line eq 90)),count) 
+		index = where((line gt 0) and ((nlcd_line eq 41) or (nlcd_line eq 42) or (nlcd_line eq 43) or (nlcd_line eq 90) or (nlcd_line eq 52)),count) 
 		if (count gt 0) then begin
 			out_dead_line[index] = calc_dead(line[index])
 			out_root_line[index] = calc_root(line[index])
